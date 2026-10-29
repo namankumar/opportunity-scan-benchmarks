@@ -1,0 +1,372 @@
+{
+  "benchmark": "opportunity-scanner-offline-v1",
+  "source_binding": {
+    "module": "scan_efficiency.py",
+    "sha256": "bd4e2ff743bc90aeec906f9c585cdac0c5605a4676fe3f3ee12c5cd36e24d87e",
+    "source_path_kind": "public_export"
+  },
+  "fixture_binding": {
+    "file": "cases.json",
+    "sha256": "65fe31cde2541fc9c8346f45a521a2a8655450c5252f1340990fe3a47a6c9b1c",
+    "version": "2026-10-28-v1",
+    "labeling": "Author-labeled fixed collection; public-source cases paraphrase the linked originals. Held-out cases are reported separately and were not used to modify the scanner. Labels have not had independent human adjudication."
+  },
+  "execution": {
+    "kind": "offline deterministic replay",
+    "trials_per_config": 1,
+    "starting_state": "new in-memory SQLite from identical case priors per config",
+    "browser_reads": 0,
+    "model_calls": 0,
+    "crm_file_writes": 0
+  },
+  "baseline": {
+    "config": {
+      "weak_item_limit": 0
+    },
+    "planned_cases": 18,
+    "fresh_cases": 16,
+    "route_counts": {
+      "review": 11,
+      "deferred": 2,
+      "noise_audit": 2,
+      "duplicate_occurrence": 1,
+      "known_unchanged": 1,
+      "read_original": 1
+    },
+    "valid_run_rate": 1.0,
+    "direct_review_precision": 0.8182,
+    "direct_review_recall": 0.75,
+    "model_queue_precision": 0.8182,
+    "model_queue_recall": 0.75,
+    "splits": {
+      "calibration": {
+        "fresh_cases": 10,
+        "known_relevant": 7,
+        "model_queue_recall": 0.8571
+      },
+      "held_out": {
+        "fresh_cases": 6,
+        "known_relevant": 5,
+        "model_queue_recall": 0.6
+      }
+    },
+    "duplicate_suppression": 1,
+    "unchanged_suppression": 1,
+    "originals_needed": 1,
+    "deferred": 2,
+    "forbidden_action_errors": [],
+    "planner_elapsed_ms_single_run": 0.206,
+    "model_task_success": null,
+    "model_latency_ms": null,
+    "model_cost_usd": null,
+    "real_operational_impact": null,
+    "routes": [
+      {
+        "case": "reddit-logistics",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "oneseven-caio",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "explicit-contract",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "implicit-bottleneck",
+        "split": "calibration",
+        "route": "deferred",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "ack",
+        "split": "calibration",
+        "route": "noise_audit",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "social-event",
+        "split": "calibration",
+        "route": "noise_audit",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "closed-role",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "same-buyer",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "same-buyer",
+        "split": "calibration",
+        "route": "duplicate_occurrence",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "settled-unchanged",
+        "split": "calibration",
+        "route": "known_unchanged",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "changed-version",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "new-reply",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "incomplete",
+        "split": "held_out",
+        "route": "read_original",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "different-buyer-a",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "different-buyer-b",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": "different-buyer-a"
+      },
+      {
+        "case": "deadline-passed",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "injected-buyer",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "quiet-pain",
+        "split": "held_out",
+        "route": "deferred",
+        "possible_crosspost_of": null
+      }
+    ]
+  },
+  "candidate": {
+    "config": {
+      "weak_item_limit": 12
+    },
+    "planned_cases": 18,
+    "fresh_cases": 16,
+    "route_counts": {
+      "review": 11,
+      "triage": 2,
+      "noise_audit": 2,
+      "duplicate_occurrence": 1,
+      "known_unchanged": 1,
+      "read_original": 1
+    },
+    "valid_run_rate": 1.0,
+    "direct_review_precision": 0.8182,
+    "direct_review_recall": 0.75,
+    "model_queue_precision": 0.8462,
+    "model_queue_recall": 0.9167,
+    "splits": {
+      "calibration": {
+        "fresh_cases": 10,
+        "known_relevant": 7,
+        "model_queue_recall": 1.0
+      },
+      "held_out": {
+        "fresh_cases": 6,
+        "known_relevant": 5,
+        "model_queue_recall": 0.8
+      }
+    },
+    "duplicate_suppression": 1,
+    "unchanged_suppression": 1,
+    "originals_needed": 1,
+    "deferred": 0,
+    "forbidden_action_errors": [],
+    "planner_elapsed_ms_single_run": 0.157,
+    "model_task_success": null,
+    "model_latency_ms": null,
+    "model_cost_usd": null,
+    "real_operational_impact": null,
+    "routes": [
+      {
+        "case": "reddit-logistics",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "oneseven-caio",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "explicit-contract",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "implicit-bottleneck",
+        "split": "calibration",
+        "route": "triage",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "ack",
+        "split": "calibration",
+        "route": "noise_audit",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "social-event",
+        "split": "calibration",
+        "route": "noise_audit",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "closed-role",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "same-buyer",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "same-buyer",
+        "split": "calibration",
+        "route": "duplicate_occurrence",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "settled-unchanged",
+        "split": "calibration",
+        "route": "known_unchanged",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "changed-version",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "new-reply",
+        "split": "calibration",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "incomplete",
+        "split": "held_out",
+        "route": "read_original",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "different-buyer-a",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "different-buyer-b",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": "different-buyer-a"
+      },
+      {
+        "case": "deadline-passed",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "injected-buyer",
+        "split": "held_out",
+        "route": "review",
+        "possible_crosspost_of": null
+      },
+      {
+        "case": "quiet-pain",
+        "split": "held_out",
+        "route": "triage",
+        "possible_crosspost_of": null
+      }
+    ]
+  },
+  "reddit_reader_fixture_tests": {
+    "status": "pass",
+    "tests": 6,
+    "passed": 6,
+    "failed": 0,
+    "elapsed_ms": 144.78,
+    "scope": "synthetic rendered-DOM fixtures; live Reddit completeness not established"
+  },
+  "regressions": [],
+  "source_plan": [
+    {
+      "scope_id": "reddit:AiAutomations",
+      "metadata_due": true,
+      "deep_reads_due": true,
+      "weak_item_limit": 12,
+      "buyer_or_incomplete_bypasses_limit": true
+    },
+    {
+      "scope_id": "gmail:fixture",
+      "metadata_due": true,
+      "deep_reads_due": true,
+      "weak_item_limit": 12,
+      "buyer_or_incomplete_bypasses_limit": true
+    },
+    {
+      "scope_id": "facebook:trial",
+      "metadata_due": true,
+      "deep_reads_due": false,
+      "weak_item_limit": 2,
+      "buyer_or_incomplete_bypasses_limit": true
+    }
+  ],
+  "status": {
+    "routing_invariants": "pass",
+    "reader_fixture_extraction": "pass",
+    "semantic_extraction": "not_reached",
+    "model_quality": "not_reached",
+    "live_coverage": "not_reached",
+    "real_world_roi": "not_reached"
+  },
+  "interpretation": [
+    "Precision and recall are against this bounded author-labeled collection only.",
+    "A direct review route is not a qualified lead or a correct model judgment.",
+    "Deferred captures remain pending and must not advance source cutoffs.",
+    "Single-run planner timing is observed local execution, not model latency or token cost."
+  ]
+}

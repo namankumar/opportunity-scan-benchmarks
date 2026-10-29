@@ -1,0 +1,54 @@
+{
+  "version": "2026-10-28-v1",
+  "files": [
+    {
+      "source": "measured-intuition/prospecting/benchmarks/cases.json",
+      "public_path": "cases.json",
+      "sha256": "65fe31cde2541fc9c8346f45a521a2a8655450c5252f1340990fe3a47a6c9b1c",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "measured-intuition/prospecting/benchmarks/run.py",
+      "public_path": "run.py",
+      "sha256": "51c1691f42edc69cfa81182ed17d00843e13edc224682c63a0cefb027c136b97",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "measured-intuition/prospecting/benchmarks/test_run.py",
+      "public_path": "test_run.py",
+      "sha256": "23776070a186d019d42c3384a8488a8d3d4ab63cf93dccb055c021922d9cdd32",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "measured-intuition/prospecting/benchmarks/README.md",
+      "public_path": "README.md",
+      "sha256": "be0a0b55539efd7b9ccfcf9e4bdba60158107dc86b2916c244baf44ee1f40ccd",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "measured-intuition/prospecting/benchmarks/SOURCE-BOUNDARY.md",
+      "public_path": "SOURCE-BOUNDARY.md",
+      "sha256": "42ff8c1e594cac28183a2913e166c8f9cf4cb0ea8ca844c29573237c06da2892",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "_system/crm/scan_efficiency.py",
+      "public_path": "scan_efficiency.py",
+      "sha256": "bd4e2ff743bc90aeec906f9c585cdac0c5605a4676fe3f3ee12c5cd36e24d87e",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "measured-intuition/prospecting/scan-reddit-reader.js",
+      "public_path": "scan-reddit-reader.js",
+      "sha256": "c3dccb8ef68083bddd21fd15aeaf2f0e3b8096838a19842f560aa215270b73eb",
+      "copy": "byte_identical"
+    },
+    {
+      "source": "measured-intuition/prospecting/tests/test-scan-reddit-reader.mjs",
+      "public_path": "tests/test-scan-reddit-reader.mjs",
+      "sha256": "f20a5e1df06cde8863c4fb5f5aa05cd8fd13c10afa9bfabff95cbe17fbb002d4",
+      "copy": "byte_identical"
+    }
+  ],
+  "publication_boundary": "Allowlisted files only; no database, capture, account or application data."
+}
