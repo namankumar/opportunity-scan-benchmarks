@@ -1,6 +1,20 @@
-# Opportunity scan evaluation
+# Opportunity Scan Benchmarks
 
-A bounded, offline comparison of the **actual** opportunity-scan planner and Reddit DOM reader. It is inside the owning prospecting project. It does not alter the scanner, send messages, move a cutoff, read a private account, or run a model.
+An opportunity scanner can miss a useful post because the buyer described a problem rather than saying they're hiring. I built this small benchmark to see what the planner sends for review, what it defers, and what it should ignore as a duplicate.
+
+It runs the real planner and Reddit reader against fixed offline examples. No accounts, browser, model or live scan are involved.
+
+## Run it
+
+You'll need Python 3.9+ and Node 18+. From this checkout:
+
+```sh
+python3 run.py --output scorecard.json
+python3 -m unittest discover -s . -p 'test_*.py' -v
+node --test tests/test-scan-reddit-reader.mjs
+```
+
+Open `scorecard.json` for the comparison. The report stays local and uses no private correspondence. The planner works against a fresh in-memory SQLite database for each configuration; it doesn't touch a production database.
 
 ## What runs
 
@@ -14,19 +28,7 @@ flowchart LR
   D --> G[Offline results and explicit unknowns]
 ```
 
-The private project imports `_system/crm/scan_efficiency.py` directly. A public copy includes that same source file byte-for-byte and the existing `scan-reddit-reader.js` with its tests. `run.py` checks source/fixture SHA-256 bindings. This is real routing and extraction code, exercised with controlled fixtures; it is not a live scan or a substitute for the whole private pipeline.
-
-## Run
-
-From the private 10x repository root:
-
-```sh
-python3 measured-intuition/prospecting/benchmarks/run.py --output measured-intuition/prospecting/benchmarks/scorecard.json
-python3 -m unittest discover -s measured-intuition/prospecting/benchmarks -p 'test_*.py' -v
-node --test measured-intuition/prospecting/tests/test-scan-reddit-reader.mjs
-```
-
-In the public copy, run `python3 run.py --output scorecard.json`, `python3 -m unittest discover -s . -p 'test_*.py' -v`, and `node --test tests/test-scan-reddit-reader.mjs`. Python 3.9+ and Node 18+ suffice. No credentials, network, model, browser, server or production database are required. The output file is a local report; the scored fixture contains no private correspondence.
+This checkout includes the same `scan_efficiency.py` used by the private scanner, plus its Reddit DOM reader and tests. `run.py` checks source/fixture SHA-256 bindings. This is real routing and extraction code, exercised with controlled fixtures; it is not a live scan or a substitute for the whole private pipeline.
 
 ## Tasks and grading
 
